@@ -1,0 +1,7 @@
+.SUBCKT IdealOpamp_Saturating  In+ In- VCC VEE Out PARAMS: GAIN=1Meg
+RVCC VCC 0 350
+RVEE VEE 0 350
+E1 X 0 In+ In- {Gain}
+B1 Out 0 V=IF(V(X) > V(VCC), V(VCC), IF(V(X) < V(VEE),V(VEE),V(X)))
+R1 In- In+ 1e12
+.ENDS
